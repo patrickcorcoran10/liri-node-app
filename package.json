@@ -1,0 +1,27 @@
+{
+  "name": "lori-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "keys.js",
+  "dependencies": {
+    "node-spotify-api": "^1.0.7",
+    "omdb": "^0.8.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickcorcoran10/lori-node-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickcorcoran10/lori-node-app/issues"
+  },
+  "homepage": "https://github.com/patrickcorcoran10/lori-node-app#readme"
+}
