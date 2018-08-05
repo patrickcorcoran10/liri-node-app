@@ -1,4 +1,4 @@
-// var request = require("dotenv").config();
+
 
 
 
@@ -20,12 +20,11 @@ if (searchType == "movie-this") {
 
 request("http://www.omdbapi.com/?t="+term+"&y=&plot=short&apikey=trilogy", function(error, response, body) {if (!error && response.statusCode === 200) {
     var movie = JSON.parse(body);
-    console.log(twitter);
     console.log(body);
     console.log(movie.Title);
     console.log(movie.Year);
     console.log(movie.imdbRating);
-    console.log(movie.Rating);
+    console.log(movie.Ratings[1]);
     console.log(movie.Country);
     console.log(movie.Language);
     console.log(movie.Plot);
@@ -39,32 +38,48 @@ else
     console.log(movie.Title);
     console.log(movie.Year);
     console.log(movie.imdbRating);
-    console.log(movie.Ratings.Source[1].Value);
+    console.log(movie.Ratings[1]);
     console.log(movie.Country);
     console.log(movie.Language);
     console.log(movie.Plot);
     console.log(movie.Actors);
 }});
-
-
-// if (searchType == "my-tweets") {
-//   var client = new Twitter(keys.twitter);
-//   param = {screen_name: devUserAP};
-//   var count = 0;
-//   twitter.stream(function(stream) {
-//     stream.on("data", function(data) {
-//       console.log(param.data);
-//     })
+// if (searchType == "my-twitter") {
+// function myTweets() {
+//   var client = new Twitter({
+//     consumer_key: keys.twitterKeys.consumer_key,
+//     consumer_secret: keys.twitterKeys.consumer_secret,
+//     access_token_key: keys.twitterKeys.access_token_key,
+//     access_token_secret: keys.twitterKeys.access_token_secret, 
 //   });
+//   var twitterUsername = process.argv[3];
+//   if(!twitterUsername){
+//     twitterUsername = "'devUserAPI";
+//   }
+//   params = {screen_name: twitterUsername};
+//   client.get("statuses/user_timeline/", params, function(error, data, response){
+//     if (!error) {
+//       for(var i = 0; i < data.length; i++) {
+//         //console.log(response); // Show the full response in the terminal
+//         var twitterResults = 
+//         "@" + data[i].user.screen_name + ": " + 
+//         data[i].text + "\r\n" + 
+//         data[i].created_at + "\r\n" + 
+//         "------------------------------ " + i + " ------------------------------" + "\r\n";
+//         console.log(twitterResults);
+//         log(twitterResults); // calling log function
+//       }
+//     }  else {
+//       console.log("Error :"+ error);
+//       return;
+//     }
+//   });
+// }
 // };
-  
-  
-  // request("https://api.twitter.com/1.1/search/tweets.json&&q=@devUserAPI&count=20", function(error, response, body) {if (!error && response.statusCode === 200) {
-  //   console.log(body);
-// });}
 
+// Spotify API
 if (searchType == "spotify-this-song") {
-  // var spotify = new Spotify(keys.spotify);
+  
   console.log(spotify);
   
   request("https://accounts.spotify.com/authorize/?client_id="+spotify+"&response_type=q="+term, function(error, response, body) {
@@ -72,8 +87,3 @@ if (searchType == "spotify-this-song") {
   });
 };
   
-  // request("https://api.spotify.com/v1/search&=Authorization:Bearer"+process.env.SPOTIFY_SECRET+"&q="+term, function(error, response, body) {if (!error && response.statusCode === 200) {
-  // .then(function(data) {
-  //   console.log(data); 
-  // })
-  // };
