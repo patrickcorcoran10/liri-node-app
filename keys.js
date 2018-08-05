@@ -1,5 +1,8 @@
-
+var dotenv = require("dotenv").config();
 console.log("this is loaded");
+
+// var spotify = new spotify(keys.spotify);
+// var client = new Twitter(keys.twitter);
 
 exports.twitter = {
     consoumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -10,6 +13,7 @@ exports.twitter = {
     access_token_secret: 
     process.env.TWITTER_ACCESS_TOKEN_SECRET
 };
+
 
 exports.spotify = {
     id: process.env.SPOTIFY_ID,
